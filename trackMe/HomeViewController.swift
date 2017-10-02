@@ -7,11 +7,29 @@
 //
 
 import UIKit
+import MapKit
+import KeychainSwift
 
 class HomeViewController: UIViewController {
+    
+    @IBOutlet weak var outputDisplay: UITextView!
+    
+    
+    let keychain = KeychainSwift()
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        var saved = keychain.get("my key")
+        if saved == nil {
+            print("No saved data")
+            saved = "No saved data"
+        } else {
+            print(String(describing: saved))
+        }
+        
+        outputDisplay.text = String(describing: saved!)
+        
 
         // Do any additional setup after loading the view.
     }
