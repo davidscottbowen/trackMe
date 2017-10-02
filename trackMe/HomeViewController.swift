@@ -25,6 +25,14 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // show location pin on map
+        let annotation = MKPointAnnotation()
+//      let centerCoordinate = CLLocationCoordinate2D(latitude: currentLocation.coordinate.latitude, longitude: currentLocation.coordinate.longitude)
+        let centerCoordinate = CLLocationCoordinate2D(latitude: 37.815446, longitude: -82.809549)
+                annotation.coordinate = centerCoordinate
+                annotation.title = "Title"
+                map.addAnnotation(annotation)
+        
         outputDisplay.text = " "
         
         getData()
@@ -50,7 +58,8 @@ class HomeViewController: UIViewController {
         let dateString = formatter.string(from: Date())
         let latitudeString = "Latitude: 37.815446"
         let longitudeString = "Longitude: -82.809549"
-        let currentString = dateString + "\n" + latitudeString + "\n" + longitudeString + "\n" + "\n"
+        let addressString = "Address: 513 3rd St, Paintsville, KY 41240"
+        let currentString = dateString + "\n" + latitudeString + "\n" + longitudeString + "\n" + addressString + "\n" + "\n"
         let data = currentString + saved
         
         outputDisplay.text = String(describing: data)
@@ -66,6 +75,14 @@ class HomeViewController: UIViewController {
     }
     
     
+    @IBAction func zoomInButtonTapped(_ sender: Any) {
+        map.isZoomEnabled = true
+        
+    }
+    
+    
+    @IBAction func zoomOutButtonTapped(_ sender: Any) {
+    }
     
 
     /*
