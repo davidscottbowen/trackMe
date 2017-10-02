@@ -14,6 +14,7 @@
 		F73978AA1F81AE2000E4F727 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F73978A81F81AE2000E4F727 /* LaunchScreen.storyboard */; };
 		F7DDDAD51F81B1620072CEBF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DDDAD41F81B1620072CEBF /* LoginViewController.swift */; };
 		F7DDDAD71F81B1810072CEBF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DDDAD61F81B1810072CEBF /* HomeViewController.swift */; };
+		F7DDDAD91F82E7B50072CEBF /* DeleteSaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DDDAD81F82E7B50072CEBF /* DeleteSaveViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		F73978AB1F81AE2000E4F727 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F7DDDAD41F81B1620072CEBF /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F7DDDAD61F81B1810072CEBF /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		F7DDDAD81F82E7B50072CEBF /* DeleteSaveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteSaveViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 				F73978AB1F81AE2000E4F727 /* Info.plist */,
 				F7DDDAD41F81B1620072CEBF /* LoginViewController.swift */,
 				F7DDDAD61F81B1810072CEBF /* HomeViewController.swift */,
+				F7DDDAD81F82E7B50072CEBF /* DeleteSaveViewController.swift */,
 			);
 			path = trackMe;
 			sourceTree = "<group>";
@@ -228,6 +231,7 @@
 			files = (
 				F7DDDAD51F81B1620072CEBF /* LoginViewController.swift in Sources */,
 				F73978A01F81AE2000E4F727 /* AppDelegate.swift in Sources */,
+				F7DDDAD91F82E7B50072CEBF /* DeleteSaveViewController.swift in Sources */,
 				F7DDDAD71F81B1810072CEBF /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
