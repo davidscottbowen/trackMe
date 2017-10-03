@@ -52,7 +52,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="FE3-yo-Vgl">
-                                <rect key="frame" x="0.0" y="365" width="320" height="203"/>
+                                <rect key="frame" x="0.0" y="337" width="320" height="231"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -63,7 +63,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ug2-ll-xNr">
-                                <rect key="frame" x="204" y="287" width="100" height="30"/>
+                                <rect key="frame" x="219" y="287" width="85" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Update"/>
@@ -71,41 +71,64 @@
                                     <action selector="updateButtonTapped:" destination="W9c-gZ-JtG" eventType="touchUpInside" id="FqL-2o-vKM"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fSh-Q0-Pl7">
-                                <rect key="frame" x="16" y="287" width="80" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tfk-sK-qOX">
+                                <rect key="frame" x="16" y="287" width="85" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Zoom In"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="     Export"/>
                                 <connections>
-                                    <action selector="zoomInButtonTapped:" destination="W9c-gZ-JtG" eventType="touchUpInside" id="8A6-aC-ceM"/>
+                                    <action selector="export:" destination="W9c-gZ-JtG" eventType="touchUpInside" id="Eov-dr-btS"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kX6-by-MMW">
-                                <rect key="frame" x="110" y="287" width="80" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w0h-0N-iD4">
+                                <rect key="frame" x="118" y="287" width="85" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Zoom Out"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Route"/>
                                 <connections>
-                                    <action selector="zoomOutButtonTapped:" destination="W9c-gZ-JtG" eventType="touchUpInside" id="nde-gY-2w6"/>
+                                    <action selector="updateButtonTapped:" destination="W9c-gZ-JtG" eventType="touchUpInside" id="VqI-5x-2UO"/>
+                                    <segue destination="GNl-QW-yGm" kind="show" id="8y7-hh-D65"/>
                                 </connections>
                             </button>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="40000" minValue="0.0" maxValue="5000000" translatesAutoresizingMaskIntoConstraints="NO" id="Gw5-La-nsM">
-                                <rect key="frame" x="14" y="327" width="292" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="sliderChanged:" destination="W9c-gZ-JtG" eventType="valueChanged" id="l8J-gq-XBQ"/>
-                                </connections>
-                            </slider>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="map" destination="Nn8-Y6-R8J" id="m8b-f9-cMW"/>
                         <outlet property="outputDisplay" destination="FE3-yo-Vgl" id="YMg-zN-i3Z"/>
-                        <outlet property="slider" destination="Gw5-La-nsM" id="mUT-rD-Ubi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="45X-Lg-OwR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1863.75" y="58.098591549295776"/>
+        </scene>
+        <!--Route View Controller-->
+        <scene sceneID="tGR-29-ueF">
+            <objects>
+                <viewController id="GNl-QW-yGm" customClass="RouteViewController" customModule="trackMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="810-YJ-Soj"/>
+                        <viewControllerLayoutGuide type="bottom" id="GdZ-4g-gie"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ZtX-Zx-5fJ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Y33-xH-q1G">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="routeMap" destination="Y33-xH-q1G" id="Ri6-8Z-h1b"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vqQ-I2-Sy5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2790" y="58.098591549295776"/>
         </scene>
         <!--Delete Save View Controller-->
         <scene sceneID="KY8-my-sZC">
@@ -123,7 +146,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cnx-Lg-xba" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2580" y="59"/>
+            <point key="canvasLocation" x="3701" y="59"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="FCl-eN-OmP">

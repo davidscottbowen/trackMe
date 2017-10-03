@@ -9,13 +9,17 @@
 import UIKit
 import MapKit
 import KeychainSwift
+import MessageUI
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, MFMailComposeViewControllerDelegate {
     
     @IBOutlet weak var map: MKMapView!
     @IBOutlet weak var outputDisplay: UITextView!
+
     
-    @IBOutlet weak var slider: UISlider!
+    var locationArray: [Location] = []
+    
+    var testArray: [String] = []
     
     let keychain = KeychainSwift()
     var locManager = CLLocationManager()
@@ -24,9 +28,12 @@ class HomeViewController: UIViewController {
     var saved = ""
     var number = 40000
     var test = 0
-    var finalLatitude = 00.000000
-    var finalLongitude = 00.000000
+    var finalLatitude = "00.000000"
+    var finalLongitude = "00.000000"
     var status = ""
+    var export = ""
+    
+    let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,38 +50,38 @@ class HomeViewController: UIViewController {
                 map.setRegion(coordinateRegion, animated: true)
             }
             centerMapOnLocation(location: initialLocation)
-            finalLatitude = 28.385233
-            finalLongitude = -81.563874
+            finalLatitude = "28.385233"
+            finalLongitude = "-81.563874"
             status = "Location wasn't available"
             
         } else {
-        
-        
-        // set initial location
-        let initialLocation = CLLocation(latitude: currentLocation.coordinate.latitude, longitude: currentLocation.coordinate.longitude)
-        let regionRadius: CLLocationDistance = CLLocationDistance(number)
-        func centerMapOnLocation(location: CLLocation) {
-            let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
-                                                                      regionRadius, regionRadius)
-            map.setRegion(coordinateRegion, animated: true)
-        }
-        centerMapOnLocation(location: initialLocation)
             
-            finalLatitude = currentLocation.coordinate.latitude
-            finalLongitude = currentLocation.coordinate.longitude
+            
+            // set initial location
+            let initialLocation = CLLocation(latitude: currentLocation.coordinate.latitude, longitude: currentLocation.coordinate.longitude)
+            let regionRadius: CLLocationDistance = CLLocationDistance(number)
+            func centerMapOnLocation(location: CLLocation) {
+                let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
+                                                                          regionRadius, regionRadius)
+                map.setRegion(coordinateRegion, animated: true)
+            }
+            centerMapOnLocation(location: initialLocation)
+            
+            finalLatitude = String(currentLocation.coordinate.latitude)
+            finalLongitude = String(currentLocation.coordinate.longitude)
             status = "Real Location"
-        
+            
         }
         
         // show location pin on map - user location
         
         if currentLocation == nil {
-        let annotation = MKPointAnnotation()
-        let centerCoordinate = CLLocationCoordinate2D(latitude: 28.385233, longitude: -81.563874)
-        //        let centerCoordinate = CLLocationCoordinate2D(latitude: 37.815446, longitude: -82.809549)
-        annotation.coordinate = centerCoordinate
-        annotation.title = "Title"
-        map.addAnnotation(annotation)
+            let annotation = MKPointAnnotation()
+            let centerCoordinate = CLLocationCoordinate2D(latitude: 28.385233, longitude: -81.563874)
+            //        let centerCoordinate = CLLocationCoordinate2D(latitude: 37.815446, longitude: -82.809549)
+            annotation.coordinate = centerCoordinate
+            annotation.title = "Title"
+            map.addAnnotation(annotation)
             
         } else {
             let annotation = MKPointAnnotation()
@@ -86,6 +93,7 @@ class HomeViewController: UIViewController {
             
             
         }
+        
         
         outputDisplay.text = " "
         
@@ -120,64 +128,54 @@ class HomeViewController: UIViewController {
         
         keychain.set(data, forKey: "my key")
         
-    }
-    
-    
-    @IBAction func sliderChanged(_ sender: UISlider) {
-        print(String(Int(sender.value)))
-        let initialLocation = CLLocation(latitude: 37.815446, longitude: -82.809549)
-        let regionRadius: CLLocationDistance = CLLocationDistance(Int(sender.value))
-        func centerMapOnLocation(location: CLLocation) {
-            let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
-                                                                      regionRadius, regionRadius)
-            map.setRegion(coordinateRegion, animated: true)
+        let location = Location(latitude: finalLatitude, longitude: finalLongitude, date: dateString)
+        locationArray.append(location)
+        
+        for locations in locationArray {
+            print(locations.date)
         }
-        centerMapOnLocation(location: initialLocation)
-        number = Int(sender.value)
+        
+        // show past pins
+        
+        for locations in locationArray {
+            
+            let annotation = MKPointAnnotation()
+            //        let centerCoordinate = CLLocationCoordinate2D(latitude: currentLocation.coordinate.latitude, longitude: currentLocation.coordinate.longitude)
+            let centerCoordinate = CLLocationCoordinate2D(latitude: Double(locations.latitude)!, longitude: Double(locations.longitude)!)
+            print(locations.date)
+            print(locations.latitude)
+            print(locations.longitude)
+            annotation.coordinate = centerCoordinate
+            annotation.title = locations.date
+            map.addAnnotation(annotation)
+            
+        }
+        
+        export = data
+        
+        
     }
     
+    func sendEmail() {
+        let composeVC = MFMailComposeViewController()
+        composeVC.mailComposeDelegate = self
+        // Configure the fields of the interface.
+        composeVC.setToRecipients(["scott_1993@hotmail.com"])
+        composeVC.setSubject("Hello!")
+        composeVC.setMessageBody(export, isHTML: false)
+        // Present the view controller modally.
+        self.present(composeVC, animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func export(_ sender: Any) {
+        sendEmail()
+    }
     
     
     @IBAction func updateButtonTapped(_ sender: Any) {
         outputDisplay.text = " "
         getData()
-    }
-    
-    
-    @IBAction func zoomInButtonTapped(_ sender: Any) {
-        // set initial location to Paintsville KY
-        if number > 5000 {
-            number = number - 5000
-        } else if number > 0 {
-            number = number - 1000
-        } else {
-            number = 0
-        }
-        print(number)
-        let initialLocation = CLLocation(latitude: 37.815446, longitude: -82.809549)
-        let regionRadius: CLLocationDistance = CLLocationDistance(number)
-        func centerMapOnLocation(location: CLLocation) {
-            let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
-                                                                      regionRadius, regionRadius)
-            map.setRegion(coordinateRegion, animated: true)
-        }
-        centerMapOnLocation(location: initialLocation)
-        
-    }
-    
-    
-    @IBAction func zoomOutButtonTapped(_ sender: Any) {
-        // set initial location to Paintsville KY
-        number = number + 40000
-        print(number)
-        let initialLocation = CLLocation(latitude: 37.815446, longitude: -82.809549)
-        let regionRadius: CLLocationDistance = CLLocationDistance(number)
-        func centerMapOnLocation(location: CLLocation) {
-            let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
-                                                                      regionRadius, regionRadius)
-            map.setRegion(coordinateRegion, animated: true)
-        }
-        centerMapOnLocation(location: initialLocation)
     }
     
     
