@@ -7,11 +7,16 @@
 //
 
 import UIKit
+import MapKit
 
 class LoginViewController: UIViewController {
+    
+    var locManager = CLLocationManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        locManager.requestWhenInUseAuthorization()
 
         // Do any additional setup after loading the view.
     }
