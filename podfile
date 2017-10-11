@@ -6,4 +6,6 @@ target 'trackMe' do
   use_frameworks!
 
   # Pods for trackMe
+  pod 'Firebase/Core'
+  pod 'Firebase/Database'
 end

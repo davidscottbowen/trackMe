@@ -15,6 +15,7 @@
 		F73978A71F81AE2000E4F727 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F73978A61F81AE2000E4F727 /* Assets.xcassets */; };
 		F73978AA1F81AE2000E4F727 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F73978A81F81AE2000E4F727 /* LaunchScreen.storyboard */; };
 		F796CC441F83BC040025E566 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = F796CC431F83BC040025E566 /* Location.swift */; };
+		F7DAAB5D1F8E7B7A002F6B6B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F7DAAB5C1F8E7B7A002F6B6B /* GoogleService-Info.plist */; };
 		F7DDDAD51F81B1620072CEBF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DDDAD41F81B1620072CEBF /* LoginViewController.swift */; };
 		F7DDDAD71F81B1810072CEBF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DDDAD61F81B1810072CEBF /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
@@ -32,6 +33,7 @@
 		F73978A91F81AE2000E4F727 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F73978AB1F81AE2000E4F727 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F796CC431F83BC040025E566 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		F7DAAB5C1F8E7B7A002F6B6B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F7DDDAD41F81B1620072CEBF /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F7DDDAD61F81B1810072CEBF /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -91,6 +93,7 @@
 				F73978A61F81AE2000E4F727 /* Assets.xcassets */,
 				F73978A81F81AE2000E4F727 /* LaunchScreen.storyboard */,
 				F73978AB1F81AE2000E4F727 /* Info.plist */,
+				F7DAAB5C1F8E7B7A002F6B6B /* GoogleService-Info.plist */,
 				F7DDDAD41F81B1620072CEBF /* LoginViewController.swift */,
 				F7DDDAD61F81B1810072CEBF /* HomeViewController.swift */,
 				F796CC431F83BC040025E566 /* Location.swift */,
@@ -169,6 +172,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F73978AA1F81AE2000E4F727 /* LaunchScreen.storyboard in Resources */,
+				F7DAAB5D1F8E7B7A002F6B6B /* GoogleService-Info.plist in Resources */,
 				F73978A71F81AE2000E4F727 /* Assets.xcassets in Resources */,
 				F73978A51F81AE2000E4F727 /* Main.storyboard in Resources */,
 			);
@@ -199,13 +203,15 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-trackMe/Pods-trackMe-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/KeychainSwift/KeychainSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

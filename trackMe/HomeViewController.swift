@@ -10,12 +10,14 @@ import UIKit
 import MapKit
 import MessageUI
 import Foundation
+import FirebaseDatabase
 
 class HomeViewController: UIViewController, MFMailComposeViewControllerDelegate {
     
     @IBOutlet weak var map: MKMapView!
     @IBOutlet weak var outputDisplay: UITextView!
     
+    var ref : DatabaseReference!
     var gameTimer: Timer!
     
     var pastDataArray: [Location] = []
@@ -32,10 +34,11 @@ class HomeViewController: UIViewController, MFMailComposeViewControllerDelegate 
     var status = ""
     var export = ""
     var data = ""
+    var x = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        gameTimer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(both), userInfo: nil, repeats: true)
+        //        gameTimer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(both), userInfo: nil, repeats: true)
         
         // retrieve saved data
         if let data = UserDefaults.standard.data(forKey: "locationArray"),
@@ -60,7 +63,7 @@ class HomeViewController: UIViewController, MFMailComposeViewControllerDelegate 
             print("No String Saved")
         }
         
-//        both()
+        //        both()
         
         phoneData()
         
@@ -195,6 +198,41 @@ class HomeViewController: UIViewController, MFMailComposeViewControllerDelegate 
     }
     
     
+    
+    
+    
+    @IBAction func firebaseButtonTapped(_ sender: Any) {
+        print("Firebase button tapped")
+        //        let input = inputData.text
+        //        let entryRef = self.ref.child(String(x))
+        //        entryRef.setValue(input)
+        formatter.dateFormat = "MM-dd-yyyy"
+        
+        //        let monthDayYear = formatter.string(from: Date())
+        let monthDayYear = "10-11-2017"
+        
+        formatter.dateFormat = "MM-dd-yyyy hh:mm:ss a"
+        
+        //        let dateString = formatter.string(from: Date())
+        let dateString = "10-11-2017 07:44:42 PM"
+        
+        ref = Database.database().reference(withPath: monthDayYear).child(String(x))
+        let date = dateString
+        let latitude = 35.676557
+        let longitude = -85.83965
+        let entryRefDate = self.ref.child("date")
+        let entryRefLatitude = self.ref.child("latitude")
+        let entryRefLongitude = self.ref.child("longitude")
+        entryRefDate.setValue(date)
+        entryRefLatitude.setValue(latitude)
+        entryRefLongitude.setValue(longitude)
+        
+        x = x + 1
+        
+    }
+    
+    
+    
     func phoneData () {
         
         let location = Location(date: "10/7/17 7:47:17 PM",latitude: 37.8801212227325,longitude: -82.8311794997033)
@@ -268,9 +306,7 @@ class HomeViewController: UIViewController, MFMailComposeViewControllerDelegate 
     }
     
     
-    @IBAction func export(_ sender: Any) {
-        sendEmail()
-    }
+    
     
     
     @IBAction func updateButtonTapped(_ sender: Any) {

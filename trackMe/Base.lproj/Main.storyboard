@@ -52,43 +52,32 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="FE3-yo-Vgl">
-                                <rect key="frame" x="0.0" y="475" width="320" height="93"/>
+                                <rect key="frame" x="0.0" y="468" width="320" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Nn8-Y6-R8J">
-                                <rect key="frame" x="0.0" y="64" width="320" height="365"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="320"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w0h-0N-iD4">
-                                <rect key="frame" x="118" y="437" width="85" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="Route"/>
-                                <connections>
-                                    <action selector="updateButtonTapped:" destination="W9c-gZ-JtG" eventType="touchUpInside" id="VqI-5x-2UO"/>
-                                    <segue destination="GNl-QW-yGm" kind="show" id="8y7-hh-D65"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D5P-Ia-0vg">
-                                <rect key="frame" x="16" y="437" width="85" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="Export"/>
-                                <connections>
-                                    <action selector="export:" destination="W9c-gZ-JtG" eventType="touchUpInside" id="TMT-90-9S2"/>
-                                    <action selector="updateButtonTapped:" destination="W9c-gZ-JtG" eventType="touchUpInside" id="UDB-jg-Ef9"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ug2-ll-xNr">
-                                <rect key="frame" x="219" y="437" width="85" height="30"/>
+                                <rect key="frame" x="219" y="392" width="85" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Update"/>
                                 <connections>
                                     <action selector="updateButtonTapped:" destination="W9c-gZ-JtG" eventType="touchUpInside" id="FqL-2o-vKM"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ehc-pn-c3o">
+                                <rect key="frame" x="16" y="392" width="85" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Firebase"/>
+                                <connections>
+                                    <action selector="firebaseButtonTapped:" destination="W9c-gZ-JtG" eventType="touchUpInside" id="ufo-DQ-UnF"/>
                                 </connections>
                             </button>
                         </subviews>
