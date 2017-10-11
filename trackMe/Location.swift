@@ -8,15 +8,27 @@
 
 import UIKit
 
-class Location {
-    var latitude: String!
-    var longitude: String!
-    var date: String!
+class Location: NSObject, NSCoding {
+    let date: String
+    let latitude: Double
+    let longitude: Double
     
-    init(latitude: String, longitude: String, date: String) {
+    init(date: String, latitude: Double, longitude: Double) {
+        self.date = date
         self.latitude = latitude
         self.longitude = longitude
-        self.date = date
+    }
+    required init(coder decoder: NSCoder) {
+        self.date = decoder.decodeObject(forKey: "date") as? String ?? ""
+        self.latitude = decoder.decodeDouble(forKey: "latitude")
+        self.longitude = decoder.decodeDouble(forKey: "longitude")
+    }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(date, forKey: "date")
+        coder.encode(latitude, forKey: "latitude")
+        coder.encode(longitude, forKey: "longitude")
+        
     }
 }
 

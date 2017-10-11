@@ -6,5 +6,4 @@ target 'trackMe' do
   use_frameworks!
 
   # Pods for trackMe
-pod 'KeychainSwift', '~> 9.0'
 end

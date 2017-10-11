@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		28F50542C8257C1BCEB8D30B /* Pods_trackMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97B2B7A253D837454BFE203E /* Pods_trackMe.framework */; };
 		F71A8C611F84374E0022A865 /* RouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71A8C601F84374E0022A865 /* RouteViewController.swift */; };
+		F71A8C631F8454010022A865 /* DrawRouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71A8C621F8454010022A865 /* DrawRouteViewController.swift */; };
 		F73978A01F81AE2000E4F727 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F739789F1F81AE2000E4F727 /* AppDelegate.swift */; };
 		F73978A51F81AE2000E4F727 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F73978A31F81AE2000E4F727 /* Main.storyboard */; };
 		F73978A71F81AE2000E4F727 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F73978A61F81AE2000E4F727 /* Assets.xcassets */; };
@@ -16,7 +17,6 @@
 		F796CC441F83BC040025E566 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = F796CC431F83BC040025E566 /* Location.swift */; };
 		F7DDDAD51F81B1620072CEBF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DDDAD41F81B1620072CEBF /* LoginViewController.swift */; };
 		F7DDDAD71F81B1810072CEBF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DDDAD61F81B1810072CEBF /* HomeViewController.swift */; };
-		F7DDDAD91F82E7B50072CEBF /* DeleteSaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DDDAD81F82E7B50072CEBF /* DeleteSaveViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +24,7 @@
 		34A4E3518B1343B58F339E3C /* Pods-trackMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-trackMe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-trackMe/Pods-trackMe.debug.xcconfig"; sourceTree = "<group>"; };
 		97B2B7A253D837454BFE203E /* Pods_trackMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_trackMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F71A8C601F84374E0022A865 /* RouteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteViewController.swift; sourceTree = "<group>"; };
+		F71A8C621F8454010022A865 /* DrawRouteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawRouteViewController.swift; sourceTree = "<group>"; };
 		F739789C1F81AE2000E4F727 /* trackMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = trackMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F739789F1F81AE2000E4F727 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F73978A41F81AE2000E4F727 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -33,7 +34,6 @@
 		F796CC431F83BC040025E566 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		F7DDDAD41F81B1620072CEBF /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F7DDDAD61F81B1810072CEBF /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		F7DDDAD81F82E7B50072CEBF /* DeleteSaveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteSaveViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,9 +93,9 @@
 				F73978AB1F81AE2000E4F727 /* Info.plist */,
 				F7DDDAD41F81B1620072CEBF /* LoginViewController.swift */,
 				F7DDDAD61F81B1810072CEBF /* HomeViewController.swift */,
-				F7DDDAD81F82E7B50072CEBF /* DeleteSaveViewController.swift */,
 				F796CC431F83BC040025E566 /* Location.swift */,
 				F71A8C601F84374E0022A865 /* RouteViewController.swift */,
+				F71A8C621F8454010022A865 /* DrawRouteViewController.swift */,
 			);
 			path = trackMe;
 			sourceTree = "<group>";
@@ -139,7 +139,7 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
@@ -200,10 +200,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-trackMe/Pods-trackMe-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/KeychainSwift/KeychainSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -239,8 +241,8 @@
 				F73978A01F81AE2000E4F727 /* AppDelegate.swift in Sources */,
 				F71A8C611F84374E0022A865 /* RouteViewController.swift in Sources */,
 				F796CC441F83BC040025E566 /* Location.swift in Sources */,
-				F7DDDAD91F82E7B50072CEBF /* DeleteSaveViewController.swift in Sources */,
 				F7DDDAD71F81B1810072CEBF /* HomeViewController.swift in Sources */,
+				F71A8C631F8454010022A865 /* DrawRouteViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
